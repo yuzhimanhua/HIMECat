@@ -83,7 +83,7 @@ For Amazon, the json format is
 ```
 The "overall" field is not used by our algorithm.
 
-## Running New Datasets
+## Running on New Datasets
 TODO.
 
 WARNING: Currently, the code only works for 2-layer hierarchies.
