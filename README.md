@@ -41,7 +41,7 @@ For GitHub, the json format is
   "user": [
     "Natsu6767"
   ],
-  "text": "pytorch implementation of dcgan trained on the celeba dataset deep convolutional gan pytorch implementation of dcgan ...",
+  "text": "pytorch implementation of dcgan trained on the celeba dataset deep convolutional gan ...",
   "tags": [
     "pytorch",
     "dcgan",
@@ -85,7 +85,7 @@ For Amazon, the json format is
   "product": [
     "B004DLPXAO"
   ],
-  "text": "works really great only had a problem when it was updated but they fixed it right away just love it very user friendly",
+  "text": "works really great only had a problem when it was updated but they fixed it right away ...",
   "labels": [
     "Apps-for-Android",
     "Books-&-Comics"
