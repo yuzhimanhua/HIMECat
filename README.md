@@ -67,7 +67,7 @@ For ArXiv, the json format is
     "Alessandro Epasto",
     "Enrico Nardelli"
   ],
-  "text": "on a model for integrated information in this paper we give a thorough presentation of a model ...",
+  "text": "on a model for integrated information in this paper we give a thorough presentation ...",
   "labels": [
     "cs",
     "cs.AI"
