@@ -20,39 +20,40 @@ if __name__ == "__main__":
 									 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 	
 	### Basic settings ###
-	
 	# dataset selection: github (default), arxiv, or amazon
 	parser.add_argument('--dataset', default='github', choices=['github', 'arxiv', 'amazon'])
-	# weak supervision selection: labeled documents
-	parser.add_argument('--sup_source', default='docs', choices=['docs'])
+	# pretrained embedding name: Joint Spherical (default)
+	parser.add_argument('--embedding', default='sph')
 	# the class tree level to proceed until: None (default) = maximum possible level
 	parser.add_argument('--max_level', default=None, type=int)
-	# the highest class tree level that documents can be assigned to: 1 (default)
-	parser.add_argument('--block_level', default=1, type=int)
-	# whether ground truth labels are available for evaluation: All (default, all documents have ground truth for evaluation) or None (no ground truth)
-	parser.add_argument('--with_eval', default='All', choices=['All', 'None'])
+	# the highest class tree level that documents can be assigned to: 2 (default)
+	parser.add_argument('--block_level', default=2, type=int)
 	
 	### Training settings ###
-
 	# mini-batch size for both pre-training and self-training: 256 (default)
 	parser.add_argument('--batch_size', default=256, type=int)
-	# pre-training epochs: None (default)
-	parser.add_argument('--pretrain_epochs', default=None, type=int)
-	# pseudo document generation method: bow (Bag-of-words, default)
-	parser.add_argument('--pseudo', default='bow', choices=['bow'])
+	# training epochs: None (default)
+	parser.add_argument('--pretrain_epochs', default=None, type=int)	
+	# whether ground truth labels are available for evaluation: All (default, all documents have ground truth for evaluation) or None (no ground truth)
+	parser.add_argument('--with_eval', default='All', choices=['All', 'None'])
 
 	### Hyperparameters settings ###
-
+	# number of synthesized documents per class (beta): 500 (default)
+	parser.add_argument('--beta', default=500, type=int)
+	# vmf concentration parameter when synthesizing documents (kappa): 150 (default)
+	parser.add_argument('--kappa', default=150, type=float)
+		
+	### Dummy arguments (please ignore) ###
+	# weak supervision selection: labeled documents
+	parser.add_argument('--sup_source', default='docs', choices=['docs'])
+	# pseudo document generation method: bow (Bag-of-words, default)
+	parser.add_argument('--pseudo', default='bow', choices=['bow'])
 	# background word distribution weight (alpha): 0 (default)
 	parser.add_argument('--alpha', default=0, type=float)
-	# number of generated pseudo documents per class (beta): 500 (default)
-	parser.add_argument('--beta', default=500, type=int)
 	# self-training stopping criterion (delta): 0.1 (default)
 	parser.add_argument('--delta', default=0.1, type=float)
 	# normalized entropy threshold for blocking: 1.0 (default)
 	parser.add_argument('--gamma', default=0.9, type=float)
-	# pretrained embedding name: Joint Spherical (default)
-	parser.add_argument('--embedding', default='sph')
 	
 	args = parser.parse_args()
 	print(args)
@@ -60,29 +61,27 @@ if __name__ == "__main__":
 	alpha = args.alpha
 	beta = args.beta
 	delta = args.delta
+	kappa = args.kappa
 
 	word_embedding_dim = 100
 	
 	if args.dataset == 'github':
 		pretrain_epochs = 30
 		max_doc_length = 1500
-		max_sent_length = 40
+		max_sent_length = 500
 		common_words = 10000
-		kappa = 150
 
 	elif args.dataset == 'arxiv':		
 		pretrain_epochs = 30
 		max_doc_length = 300
-		max_sent_length = 40
+		max_sent_length = 300
 		common_words = 10000
-		kappa = 150
 
 	elif args.dataset == 'amazon':		
 		pretrain_epochs = 30
 		max_doc_length = 300
-		max_sent_length = 40
+		max_sent_length = 300
 		common_words = 10000
-		kappa = 150
 
 	decay = 1e-6
 	update_interval = 2
