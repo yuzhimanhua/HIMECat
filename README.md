@@ -96,7 +96,7 @@ The "user" and "product" fields are metadata.
 
 **NOTE 1: If you would like to run our code on your own dataset, when you prepare this json file, make sure that: (1) You list the labels in the top-down order. For example, if the label path of your repository is ROOT-A-B-C, then the "labels" field should be \["A", "B", "C"\]. (2) For each document, its metadata field is always represented by a list. For example, the "user" field should be \["A39IXH6I0WT6TK"\] instead of "A39IXH6I0WT6TK".**
 
-## Running New Datasets
+## Running on New Datasets
 In the Quick Start section, we include a pretrained embedding file in the downloaded folders. If you would like to re-train the embedding (or **you have a new dataset**), please follow the steps below.
 
 1. Create a directory named ```${dataset}``` under the main folder (e.g., ```./github```).
