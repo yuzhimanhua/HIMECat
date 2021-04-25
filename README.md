@@ -128,6 +128,7 @@ If you find the implementation useful, please cite the following paper:
   title={Hierarchical Metadata-Aware Document Categorization under Weak Supervision},
   author={Zhang, Yu and Chen, Xiusi and Meng, Yu and Han, Jiawei},
   booktitle={WSDM'21},
+  pages={770--778},
   year={2021},
   organization={ACM}
 }
