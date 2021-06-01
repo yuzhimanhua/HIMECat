@@ -1,6 +1,15 @@
 # Hierarchical Metadata-Aware Document Categorization under Weak Supervision
 This project provides a weakly supervised framework for hierarchical metadata-aware document categorization.
 
+## Links
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Data](#data)
+- [Running on New Datasets](#running-on-new-datasets)
+- [Citation](#citation)
+
+
 ## Installation
 For training, a GPU is strongly recommended.
 
