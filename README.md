@@ -123,7 +123,7 @@ For ArXiv, it should be
 {"metadata": ["authors"]}
 ```
 
-3. Install the dependencies [GSL](https://www.gnu.org/software/gsl/) and [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page). For Eigen, we already provide a zip file ```JointEmbedding/eigen-3.3.3.zip```. You can directly unzip it in ```JointEmbedding/```.
+3. Install the dependencies [**GSL**](https://www.gnu.org/software/gsl/) and [**Eigen**](http://eigen.tuxfamily.org/index.php?title=Main_Page). For Eigen, we already provide a zip file ```JointEmbedding/eigen-3.3.3.zip```. You can directly unzip it in ```JointEmbedding/```. For GSL, you can download it [here](https://drive.google.com/file/d/1UvmgrZbycC7wYAHahYGRB5pRtu6Aurhv/view?usp=sharing).
 
 4. ```./prep_emb.sh```. Make sure you change the dataset/json names. The embedding file will be saved to ```./${dataset}/embedding_sph```.
 
