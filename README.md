@@ -27,10 +27,10 @@ pip3 install -r requirements.txt
 To reproduce the results in our paper, you need to first download the [**datasets**](https://drive.google.com/file/d/170Vm8LywO0jDpwjNnPIzIj2kuCClZ21k/view?usp=sharing). Three datasets are used in our paper: **GitHub**, **ArXiv**, and **Amazon**. Once you unzip the downloaded file (i.e., ```data.zip```), you can see three folders related to these three datasets, respectively. 
 
 | Dataset | #Documents | #Layers | #Classes (including ROOT) | #Leaves | Sample Classes |
-| ------- |------------| ------- | ------------------------- | ------- | -------------- |
-| [GitHub](https://github.com/yuzhimanhua/HiGitClass)        | 1,596      | 2       | 18                        | 14      | Computer Vision (Layer-1), Image Generation (Layer-2)|
-| ArXiv                                                      | 26,400     | 2       | 94                        | 88      | cs (Layer-1), cs.AI (Layer-2)|
-| [Amazon](http://jmcauley.ucsd.edu/data/amazon/index.html)  | 147,000    | 2       | 166                       | 147     | Automotive (Layer-1), Car Care (Layer-2)|
+| ------- | ---------- | ------- | ------------------------- | ------- | -------------- |
+| [GitHub](https://github.com/yuzhimanhua/HiGitClass)        | 1,596      | 2       | 18                        | 14      | Computer Vision (Layer-1), Image Generation (Layer-2) |
+| ArXiv                                                      | 26,400     | 2       | 94                        | 88      | cs (Layer-1), cs.AI (Layer-2) |
+| [Amazon](http://jmcauley.ucsd.edu/data/amazon/index.html)  | 147,000    | 2       | 166                       | 147     | Automotive (Layer-1), Car Care (Layer-2) |
 
 You need to put these 3 folders under the main folder ```./```. Then the following running script can be used to run the model.
 
@@ -103,7 +103,7 @@ For Amazon, the json format is
 ```
 The "user" and "product" fields are metadata.
 
-**NOTE 1: If you would like to run our code on your own dataset, when you prepare this json file, make sure that: (1) You list the labels in the top-down order. For example, if the label path of your repository is ROOT-A-B-C, then the "labels" field should be \["A", "B", "C"\]. (2) For each document, its metadata field is always represented by a list. For example, the "user" field should be \["A39IXH6I0WT6TK"\] instead of "A39IXH6I0WT6TK".**
+**NOTE: If you would like to run our code on your own dataset, when you prepare this json file, make sure that: (1) You list the labels in the top-down order. For example, if the label path of your repository is ROOT-A-B-C, then the "labels" field should be \["A", "B", "C"\]. (2) For each document, its metadata field is always represented by a list of strings. For example, the "user" field should be \["A39IXH6I0WT6TK"\] instead of "A39IXH6I0WT6TK".**
 
 ## Running on New Datasets
 In the Quick Start section, we include a pretrained embedding file in the downloaded folders. If you would like to re-train the embedding (or **you have a new dataset**), please follow the steps below.
