@@ -1,5 +1,6 @@
 # Hierarchical Metadata-Aware Document Categorization under Weak Supervision
-This project provides a weakly supervised framework for hierarchical metadata-aware document categorization, where only a small set of (e.g., 5) human-annotated training samples are needed for each leaf category.
+
+This repository contains the source code for [**Hierarchical Metadata-Aware Document Categorization under Weak Supervision**](https://arxiv.org/abs/2010.13556).
 
 ## Links
 
