@@ -2,6 +2,7 @@ import string
 import json
 from collections import defaultdict
 import argparse
+from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='main', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--dataset', default='github', choices=['github', 'arxiv', 'amazon'])
@@ -21,9 +22,9 @@ else:
 thrs = 10
 cnt = defaultdict(int)
 with open(folder+json_name) as fin:
-	for line in fin:
-		js = json.loads(line)
-		text = js['text'].split()
+	for line in tqdm(fin):
+		data = json.loads(line)
+		text = data['text'].split()
 		for token in text[:length]:
 			cnt[token] += 1
 
@@ -34,7 +35,7 @@ with open(folder+'label_hier.txt') as fin:
 		for label in data[1:]:
 			parent_label[label] = data[0]
 
-with open(folder+'/meta_dict.json') as fin:
+with open(folder+'meta_dict.json') as fin:
 	meta_dict = json.load(fin)
 	meta_set = set(meta_dict['metadata'])
 
@@ -63,14 +64,14 @@ with open('link.dat', 'w') as fout, open('left.dat', 'w') as fou1, open('right.d
 				right.add(D)
 
 	with open(folder+json_name) as fin:
-		for idx, line in enumerate(fin):
-			js = json.loads(line)
+		for idx, line in enumerate(tqdm(fin)):
+			data = json.loads(line)
 			D = '$DOCU_'+str(idx)
 			right.add(D)
 
 			# M-D
 			for meta in meta_set:
-				for x in js[meta]:
+				for x in data[meta]:
 					M = '$'+meta.upper()+'_'+x.replace(' ', '_')
 					fout.write(M+' '+D+' 2 1 \n')
 					left.add(M)
@@ -78,7 +79,7 @@ with open('link.dat', 'w') as fout, open('left.dat', 'w') as fou1, open('right.d
 			# W-D
 			wd = defaultdict(int)
 			text = []
-			for token in js['text'].split()[:length]:
+			for token in data['text'].split()[:length]:
 				if cnt[token] >= thrs:
 					text.append(token)
 					left.add(token)	
