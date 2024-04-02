@@ -143,7 +143,6 @@ If you find this repository useful, please cite the following paper:
   author={Zhang, Yu and Chen, Xiusi and Meng, Yu and Han, Jiawei},
   booktitle={WSDM'21},
   pages={770--778},
-  year={2021},
-  organization={ACM}
+  year={2021}
 }
 ```
